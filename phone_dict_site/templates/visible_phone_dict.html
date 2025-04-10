@@ -1,0 +1,56 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'phone_dict_site/css/style.css' %}">
+    <title>full_phone_dict</title>
+</head>
+<body style="font-size: 12px;">
+
+    <div class="grid_container">
+        <div class="page_name">
+            <h2>Внутренний контактный справочник</h2>
+        </div>
+
+        <div class="searcher">
+            <form action="#" id="search_form" method="get">
+                <input type="text" name="search_field" id="search_field" class="w-full border-none bg-red px-5 py-2 text-gray-800 outline-none focus:outline-none">
+                <button class="m-2 rounded bg-teal-800 px-4 py-2">Поискать</button>
+            </form>
+        </div>
+    </div>
+
+    <table class="table table-white table-striped-columns" style="text-align: center;">
+        <thead>
+            <tr>
+                <th scope="col">ФИО</th>
+                <th scope="col">Электронная почта </th>
+                <th scope="col">Должность </th>
+                <th scope="col">Внутренный телефон </th>
+                <th scope="col">Внешный телефон </th>
+                <th scope="col">Корпус </th>
+                <th scope="col">Подразделение </th>
+            </tr>
+        </thead>
+
+        <tbody style="font-weight: normal;">
+            {% for i in data %}
+                <tr>
+                    <th scope="col">{{ i.displayName }}</th>
+                    <th scope="col">{{ i.mail }}</th>
+                    <th scope="col">{{ i.position }}</th>
+                    <th scope="col">{{ i.inter_phone }}</th>
+                    <th scope="col">{{ i.ext_phone }}</th>
+                    <th scope="col">{{ i.building }}</th>
+                    <th scope="col">{{ i.subdivision }}</th>
+                </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+</body>
+</html>
